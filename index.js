@@ -12,5 +12,26 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  const updatedTutorials = tutorials.map((string) => {
+    return string.split(" ").map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+  });
+  return updatedTutorials;
 }
+
+// Below is how I made it make sense to myself. I tried to write out every step just so I knew what was happening.
+// Both ways pass the tests.
+
+// const titleCased = () => {
+//   const updatedTutorials = tutorials.map((string) => {
+//     const splitString = string.split(" ");
+//     const uppercaseSplit = splitString.map((word) => {
+//       const upperCaseWord = word.charAt(0).toUpperCase() + word.slice(1);
+//       return upperCaseWord;
+//     });
+//     const rejoinedString = uppercaseSplit.join(" ");
+//     return rejoinedString;
+//   });
+//   return updatedTutorials;
+// }
